@@ -1,0 +1,74 @@
+<svg viewBox="0 0 760 460" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <rect width="760" height="460" fill="#f1f5f9" rx="12"/>
+  <!-- window -->
+  <rect x="20" y="20" width="720" height="420" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="20" y="20" width="720" height="34" rx="10" fill="#e2e8f0"/>
+  <circle cx="42" cy="37" r="5" fill="#f87171"/><circle cx="60" cy="37" r="5" fill="#fbbf24"/><circle cx="78" cy="37" r="5" fill="#4ade80"/>
+  <rect x="110" y="28" width="300" height="18" rx="9" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="124" y="41" font-size="10" fill="#64748b">http://semaphore.local:3000/project/1/templates</text>
+
+  <!-- top bar -->
+  <rect x="21" y="54" width="718" height="38" fill="#0f766e"/>
+  <text x="38" y="78" font-size="14" font-weight="bold" fill="#ffffff">Semaphore UI</text>
+  <text x="640" y="78" font-size="11" fill="#ccfbf1">portfolio-deploy ▾</text>
+
+  <!-- sidebar -->
+  <rect x="21" y="92" width="150" height="347" fill="#f8fafc"/>
+  <g font-size="12" fill="#334155">
+    <text x="38" y="122">Dashboard</text>
+    <rect x="21" y="134" width="150" height="26" fill="#ccfbf1"/>
+    <text x="38" y="152" font-weight="bold" fill="#0f766e">Task Templates</text>
+    <text x="38" y="182">Inventory</text>
+    <text x="38" y="208">Key Store</text>
+    <text x="38" y="234">Variable Groups</text>
+    <text x="38" y="260">Repositories</text>
+    <text x="38" y="286">Integrations</text>
+    <text x="38" y="312">Team</text>
+  </g>
+
+  <!-- content title -->
+  <text x="195" y="124" font-size="16" font-weight="bold" fill="#0f172a">Task Templates</text>
+  <rect x="610" y="106" width="115" height="26" rx="6" fill="#0f766e"/>
+  <text x="667" y="123" text-anchor="middle" font-size="11" fill="#ffffff">+ New Template</text>
+
+  <!-- table header -->
+  <rect x="195" y="146" width="530" height="26" fill="#f1f5f9"/>
+  <g font-size="11" font-weight="bold" fill="#475569">
+    <text x="205" y="163">Name</text><text x="360" y="163">Playbook</text>
+    <text x="470" y="163">Inventory</text><text x="570" y="163">Last run</text>
+  </g>
+
+  <!-- row 1 -->
+  <rect x="195" y="172" width="530" height="40" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="205" y="196" font-size="12" font-weight="bold" fill="#0f172a">Deploy Portfolio</text>
+  <text x="360" y="196" font-size="12" fill="#334155">site.yml</text>
+  <text x="470" y="196" font-size="12" fill="#334155">prod-server</text>
+  <rect x="570" y="182" width="62" height="20" rx="10" fill="#bbf7d0"/>
+  <text x="601" y="196" text-anchor="middle" font-size="10" fill="#14532d">Success</text>
+  <rect x="645" y="182" width="70" height="20" rx="5" fill="#0f766e"/>
+  <text x="680" y="196" text-anchor="middle" font-size="10" fill="#ffffff">▶ Run</text>
+
+  <!-- row 2 -->
+  <rect x="195" y="212" width="530" height="40" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="205" y="236" font-size="12" font-weight="bold" fill="#0f172a">Check (dry-run)</text>
+  <text x="360" y="236" font-size="12" fill="#334155">site.yml --check</text>
+  <text x="470" y="236" font-size="12" fill="#334155">prod-server</text>
+  <rect x="570" y="222" width="62" height="20" rx="10" fill="#e2e8f0"/>
+  <text x="601" y="236" text-anchor="middle" font-size="10" fill="#475569">—</text>
+  <rect x="645" y="222" width="70" height="20" rx="5" fill="#0f766e"/>
+  <text x="680" y="236" text-anchor="middle" font-size="10" fill="#ffffff">▶ Run</text>
+
+  <!-- log console -->
+  <rect x="195" y="272" width="530" height="154" rx="6" fill="#0f172a"/>
+  <g font-family="Courier New, monospace" font-size="11">
+    <text x="208" y="293" fill="#94a3b8">TASK [app : Cloner le dépôt] *******************</text>
+    <text x="208" y="311" fill="#fde047">changed: [prod-server]</text>
+    <text x="208" y="329" fill="#94a3b8">RUNNING HANDLER [app : restart app] ************</text>
+    <text x="208" y="347" fill="#fde047">changed: [prod-server]</text>
+    <text x="208" y="371" fill="#94a3b8">PLAY RECAP *************************************</text>
+    <text x="208" y="389" fill="#4ade80">prod-server : ok=18 changed=6 failed=0</text>
+    <text x="208" y="413" fill="#64748b"># logs en direct d'une exécution</text>
+  </g>
+
+  <text x="380" y="454" text-anchor="middle" font-size="10" fill="#64748b">Maquette illustrative – l'interface réelle peut différer selon la version de Semaphore</text>
+</svg>

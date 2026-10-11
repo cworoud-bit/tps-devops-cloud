@@ -1,0 +1,60 @@
+<svg viewBox="0 0 820 320" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+  </defs>
+  <rect width="820" height="320" fill="#f8fafc" rx="12"/>
+  <text x="410" y="28" text-anchor="middle" font-size="16" font-weight="bold" fill="#0f172a">Ruleset «Protect main»: Verify must pass before merging</text>
+
+  <g text-anchor="middle" font-size="12" font-weight="bold">
+    <rect x="20" y="120" width="130" height="70" rx="10" fill="#fde68a" stroke="#b45309" stroke-width="2"/>
+    <text x="85" y="148" fill="#78350f">feature/…</text>
+    <text x="85" y="167" font-size="10" font-weight="normal" fill="#78350f">git push -u origin</text>
+
+    <rect x="185" y="120" width="130" height="70" rx="10" fill="#e9d5ff" stroke="#7e22ce" stroke-width="2"/>
+    <text x="250" y="148" fill="#581c87">Pull request</text>
+    <text x="250" y="167" font-size="10" font-weight="normal" fill="#581c87">into main</text>
+
+    <rect x="350" y="120" width="130" height="70" rx="10" fill="#bfdbfe" stroke="#1d4ed8" stroke-width="2"/>
+    <text x="415" y="148" fill="#1e3a8a">Verify</text>
+    <text x="415" y="167" font-size="10" font-weight="normal" fill="#1e3a8a">GitHub Actions</text>
+
+    <!-- success branch -->
+    <rect x="530" y="55" width="130" height="70" rx="10" fill="#bbf7d0" stroke="#15803d" stroke-width="2"/>
+    <text x="595" y="83" fill="#14532d">✓ Merge allowed</text>
+    <text x="595" y="102" font-size="10" font-weight="normal" fill="#14532d">Create a merge commit</text>
+
+    <rect x="680" y="55" width="125" height="70" rx="10" fill="#ccfbf1" stroke="#0f766e" stroke-width="2"/>
+    <text x="742" y="83" fill="#134e4a">main</text>
+    <text x="742" y="102" font-size="10" font-weight="normal" fill="#134e4a">CI again → Render</text>
+
+    <!-- failure branch -->
+    <rect x="530" y="190" width="130" height="70" rx="10" fill="#fecaca" stroke="#b91c1c" stroke-width="2"/>
+    <text x="595" y="218" fill="#7f1d1d">✗ Merge blocked</text>
+    <text x="595" y="237" font-size="10" font-weight="normal" fill="#7f1d1d">PR stays open</text>
+
+    <rect x="680" y="190" width="125" height="70" rx="10" fill="#fde68a" stroke="#b45309" stroke-width="2"/>
+    <text x="742" y="218" fill="#78350f">Fix + git push</text>
+    <text x="742" y="237" font-size="10" font-weight="normal" fill="#78350f">PR updates itself</text>
+  </g>
+
+  <line x1="150" y1="155" x2="182" y2="155" stroke="#475569" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="315" y1="155" x2="347" y2="155" stroke="#475569" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M480,145 L505,145 L505,90 L527,90" fill="none" stroke="#15803d" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M480,165 L505,165 L505,225 L527,225" fill="none" stroke="#b91c1c" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="660" y1="90" x2="677" y2="90" stroke="#475569" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="660" y1="225" x2="677" y2="225" stroke="#475569" stroke-width="2" marker-end="url(#a)"/>
+  <!-- loop back to Verify -->
+  <path d="M742,260 L742,285 L415,285 L415,193" fill="none" stroke="#475569" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#a)"/>
+  <text x="578" y="300" text-anchor="middle" font-size="10" fill="#475569">new commit → new Verify run</text>
+
+  <!-- ruleset card -->
+  <rect x="20" y="215" width="295" height="80" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.5"/>
+  <g font-size="10" fill="#334155" font-family="Consolas, monospace">
+    <text x="32" y="234">Require a pull request ........ on</text>
+    <text x="32" y="250">Require status checks ......... on</text>
+    <text x="32" y="266">Required check ....... Verify</text>
+    <text x="32" y="282">Bypass list ............... empty</text>
+  </g>
+</svg>

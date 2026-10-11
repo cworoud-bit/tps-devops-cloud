@@ -1,0 +1,52 @@
+<svg viewBox="0 0 780 300" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+  </defs>
+  <rect width="780" height="300" fill="#f8fafc" rx="12"/>
+  <text x="390" y="28" text-anchor="middle" font-size="16" font-weight="bold" fill="#0f172a">Render pull request preview vs production</text>
+
+  <g text-anchor="middle" font-size="12" font-weight="bold">
+    <!-- production lane -->
+    <rect x="20" y="60" width="150" height="70" rx="10" fill="#ccfbf1" stroke="#0f766e" stroke-width="2"/>
+    <text x="95" y="88" fill="#134e4a">main</text>
+    <text x="95" y="107" font-size="10" font-weight="normal" fill="#134e4a">merged code</text>
+
+    <rect x="300" y="60" width="200" height="70" rx="10" fill="#bbf7d0" stroke="#15803d" stroke-width="2"/>
+    <text x="400" y="88" fill="#14532d">Production service</text>
+    <text x="400" y="107" font-size="10" font-weight="normal" fill="#14532d">permanent instance</text>
+
+    <rect x="590" y="60" width="170" height="70" rx="10" fill="#ffffff" stroke="#15803d" stroke-width="2"/>
+    <text x="675" y="88" fill="#14532d">Production URL</text>
+    <text x="675" y="107" font-size="10" font-weight="normal" fill="#14532d">no new message yet</text>
+
+    <!-- preview lane -->
+    <rect x="20" y="170" width="150" height="70" rx="10" fill="#e9d5ff" stroke="#7e22ce" stroke-width="2"/>
+    <text x="95" y="198" fill="#581c87">Open pull request</text>
+    <text x="95" y="217" font-size="10" font-weight="normal" fill="#581c87">feature/preview-demo</text>
+
+    <rect x="300" y="170" width="200" height="70" rx="10" fill="#fde68a" stroke="#b45309" stroke-width="2" stroke-dasharray="6 4"/>
+    <text x="400" y="198" fill="#78350f">Preview instance</text>
+    <text x="400" y="217" font-size="10" font-weight="normal" fill="#78350f">temporary · deleted on merge/close</text>
+
+    <rect x="590" y="170" width="170" height="70" rx="10" fill="#ffffff" stroke="#b45309" stroke-width="2"/>
+    <text x="675" y="198" fill="#78350f">Preview URL</text>
+    <text x="675" y="217" font-size="10" font-weight="normal" fill="#78350f">«Preview deployment» ✓</text>
+  </g>
+
+  <line x1="170" y1="95" x2="297" y2="95" stroke="#475569" stroke-width="2" marker-end="url(#a)"/>
+  <text x="230" y="87" text-anchor="middle" font-size="9" fill="#475569">After CI Checks Pass</text>
+  <line x1="500" y1="95" x2="587" y2="95" stroke="#475569" stroke-width="2" marker-end="url(#a)"/>
+
+  <line x1="170" y1="205" x2="297" y2="205" stroke="#475569" stroke-width="2" marker-end="url(#a)"/>
+  <text x="233" y="197" text-anchor="middle" font-size="10" fill="#475569">Previews: Automatic</text>
+  <text x="233" y="225" text-anchor="middle" font-size="9" fill="#475569">(or Manual + [render preview])</text>
+  <line x1="500" y1="205" x2="587" y2="205" stroke="#475569" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- merge arrow -->
+  <path d="M95,170 L95,133" fill="none" stroke="#7e22ce" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="103" y="156" font-size="10" fill="#7e22ce">merge after review</text>
+
+  <text x="390" y="275" text-anchor="middle" font-size="11" fill="#334155">Compare both URLs while the pull request is open, then merge: production gets the change and the preview is removed.</text>
+</svg>

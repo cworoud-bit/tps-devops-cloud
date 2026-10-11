@@ -1,0 +1,34 @@
+<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <rect width="760" height="300" fill="#f8fafc" rx="12"/>
+  <text x="380" y="28" text-anchor="middle" font-size="16" font-weight="bold" fill="#0f172a">TP1 (Ansible + Semaphore) vs TP2 (Coolify)</text>
+
+  <!-- left -->
+  <rect x="25" y="50" width="340" height="230" rx="12" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+  <text x="195" y="78" text-anchor="middle" font-size="15" font-weight="bold" fill="#7f1d1d">Ansible + Semaphore UI</text>
+  <text x="195" y="98" text-anchor="middle" font-size="11" fill="#7f1d1d">Approche « Infrastructure as Code »</text>
+  <g font-size="12" fill="#450a0a">
+    <text x="45" y="130">• Vous décrivez TOUT l'état du serveur</text>
+    <text x="45" y="155">• Playbooks, rôles, templates à écrire</text>
+    <text x="45" y="180">• Idempotence : à garantir soi-même</text>
+    <text x="45" y="205">• Contrôle total, très flexible</text>
+    <text x="45" y="230">• Idéal : parc de serveurs, conformité</text>
+    <text x="45" y="255">• Courbe d'apprentissage plus forte</text>
+  </g>
+
+  <!-- right -->
+  <rect x="395" y="50" width="340" height="230" rx="12" fill="#ccfbf1" stroke="#0f766e" stroke-width="2"/>
+  <text x="565" y="78" text-anchor="middle" font-size="15" font-weight="bold" fill="#134e4a">Coolify</text>
+  <text x="565" y="98" text-anchor="middle" font-size="11" fill="#134e4a">Approche « PaaS auto-hébergé »</text>
+  <g font-size="12" fill="#042f2e">
+    <text x="415" y="130">• Interface : on déclare l'application</text>
+    <text x="415" y="155">• Build, proxy, routage gérés pour vous</text>
+    <text x="415" y="180">• Déploiement auto à chaque git push</text>
+    <text x="415" y="205">• Bases de données en un clic</text>
+    <text x="415" y="230">• Idéal : apps web, équipes réduites</text>
+    <text x="415" y="255">• Moins de contrôle fin sur le système</text>
+  </g>
+
+  <!-- vs -->
+  <circle cx="380" cy="165" r="20" fill="#0f172a"/>
+  <text x="380" y="170" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">VS</text>
+</svg>

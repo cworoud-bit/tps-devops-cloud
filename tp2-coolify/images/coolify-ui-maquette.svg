@@ -1,0 +1,76 @@
+<svg viewBox="0 0 760 460" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <rect width="760" height="460" fill="#f1f5f9" rx="12"/>
+  <rect x="20" y="20" width="720" height="420" rx="10" fill="#1e1b2e" stroke="#3b3556" stroke-width="2"/>
+
+  <!-- top bar -->
+  <rect x="21" y="21" width="718" height="34" rx="10" fill="#2a2640"/>
+  <circle cx="42" cy="38" r="5" fill="#f87171"/><circle cx="60" cy="38" r="5" fill="#fbbf24"/><circle cx="78" cy="38" r="5" fill="#4ade80"/>
+  <rect x="110" y="29" width="300" height="18" rx="9" fill="#1e1b2e" stroke="#3b3556"/>
+  <text x="124" y="42" font-size="10" fill="#a8a3c7">http://IP-SERVEUR:8000/project/…/application</text>
+
+  <!-- sidebar -->
+  <rect x="21" y="55" width="140" height="384" fill="#18152a"/>
+  <g font-size="12" fill="#c4c0e0">
+    <text x="36" y="84" font-weight="bold" fill="#ffffff">Dashboard</text>
+    <rect x="21" y="100" width="140" height="26" fill="#352f5b"/>
+    <text x="36" y="118" font-weight="bold" fill="#ffffff">Projects</text>
+    <text x="36" y="148">Servers</text>
+    <text x="36" y="174">Sources</text>
+    <text x="36" y="200">Destinations</text>
+    <text x="36" y="226">Keys &amp; Tokens</text>
+    <text x="36" y="252">Notifications</text>
+    <text x="36" y="278">Settings</text>
+  </g>
+
+  <!-- header -->
+  <text x="185" y="86" font-size="16" font-weight="bold" fill="#ffffff">portfolio-nextjs</text>
+  <rect x="190" y="95" width="62" height="20" rx="10" fill="#14532d"/>
+  <text x="221" y="109" text-anchor="middle" font-size="10" fill="#bbf7d0">● Running</text>
+  <rect x="580" y="72" width="70" height="26" rx="6" fill="#6d28d9"/>
+  <text x="615" y="89" text-anchor="middle" font-size="11" fill="#ffffff">Deploy</text>
+  <rect x="660" y="72" width="62" height="26" rx="6" fill="#3b3556"/>
+  <text x="691" y="89" text-anchor="middle" font-size="11" fill="#c4c0e0">Restart</text>
+
+  <!-- tabs -->
+  <g font-size="11" fill="#a8a3c7">
+    <text x="185" y="140" font-weight="bold" fill="#ffffff">Configuration</text>
+    <rect x="185" y="146" width="80" height="2" fill="#6d28d9"/>
+    <text x="285" y="140">Deployments</text>
+    <text x="375" y="140">Logs</text>
+    <text x="420" y="140">Environment Variables</text>
+    <text x="545" y="140">Webhooks</text>
+    <text x="620" y="140">Advanced</text>
+  </g>
+
+  <!-- form -->
+  <g font-size="11" fill="#a8a3c7">
+    <text x="185" y="175">Build Pack</text>
+    <rect x="185" y="182" width="250" height="26" rx="5" fill="#2a2640" stroke="#3b3556"/>
+    <text x="197" y="199" fill="#ffffff">Nixpacks</text>
+
+    <text x="455" y="175">Ports Exposes</text>
+    <rect x="455" y="182" width="270" height="26" rx="5" fill="#2a2640" stroke="#3b3556"/>
+    <text x="467" y="199" fill="#ffffff">3000</text>
+
+    <text x="185" y="233">Domains</text>
+    <rect x="185" y="240" width="250" height="26" rx="5" fill="#2a2640" stroke="#3b3556"/>
+    <text x="197" y="257" fill="#ffffff">http://portfolio.coolify.local</text>
+
+    <text x="455" y="233">Branch</text>
+    <rect x="455" y="240" width="270" height="26" rx="5" fill="#2a2640" stroke="#3b3556"/>
+    <text x="467" y="257" fill="#ffffff">main</text>
+  </g>
+
+  <!-- deployment log -->
+  <rect x="185" y="290" width="540" height="136" rx="6" fill="#0b0a14"/>
+  <g font-family="Courier New, monospace" font-size="11">
+    <text x="198" y="310" fill="#a8a3c7">Deployment queued · pulling source from Git…</text>
+    <text x="198" y="328" fill="#a8a3c7">Building image (Nixpacks) · npm ci · npm run build</text>
+    <text x="198" y="346" fill="#a8a3c7">Starting new container… healthcheck passed</text>
+    <text x="198" y="364" fill="#4ade80">New container healthy · old container removed</text>
+    <text x="198" y="388" fill="#4ade80">Deployment finished successfully</text>
+    <text x="198" y="412" fill="#64748b"># logs de déploiement en direct</text>
+  </g>
+
+  <text x="380" y="454" text-anchor="middle" font-size="10" fill="#64748b">Maquette illustrative – l'interface réelle de Coolify peut différer selon la version</text>
+</svg>

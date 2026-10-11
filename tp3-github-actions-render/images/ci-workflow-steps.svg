@@ -1,0 +1,60 @@
+<svg viewBox="0 0 800 290" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+  </defs>
+  <rect width="800" height="290" fill="#f8fafc" rx="12"/>
+  <text x="400" y="28" text-anchor="middle" font-size="16" font-weight="bold" fill="#0f172a">.github/workflows/ci.yml: job «Verify» on ubuntu-latest</text>
+  <text x="400" y="48" text-anchor="middle" font-size="11" fill="#475569">on: push to main · pull_request into main · permissions: contents: read · timeout: 10 min</text>
+
+  <g text-anchor="middle" font-size="12" font-weight="bold">
+    <rect x="20" y="75" width="170" height="70" rx="10" fill="#e2e8f0" stroke="#334155" stroke-width="2"/>
+    <text x="105" y="103" fill="#0f172a">1. Check out repository</text>
+    <text x="105" y="122" font-size="10" font-weight="normal" fill="#0f172a" font-family="Consolas, monospace">actions/checkout</text>
+
+    <rect x="215" y="75" width="170" height="70" rx="10" fill="#bbf7d0" stroke="#15803d" stroke-width="2"/>
+    <text x="300" y="103" fill="#14532d">2. Set up Node.js</text>
+    <text x="300" y="122" font-size="10" font-weight="normal" fill="#14532d" font-family="Consolas, monospace">node-version: 24 · cache: npm</text>
+
+    <rect x="410" y="75" width="170" height="70" rx="10" fill="#fde68a" stroke="#b45309" stroke-width="2"/>
+    <text x="495" y="103" fill="#78350f">3. Install dependencies</text>
+    <text x="495" y="122" font-size="10" font-weight="normal" fill="#78350f" font-family="Consolas, monospace">npm ci (lockfile)</text>
+
+    <rect x="605" y="75" width="175" height="70" rx="10" fill="#bfdbfe" stroke="#1d4ed8" stroke-width="2"/>
+    <text x="692" y="103" fill="#1e3a8a">4. Verify application</text>
+    <text x="692" y="122" font-size="10" font-weight="normal" fill="#1e3a8a" font-family="Consolas, monospace">npm run verify</text>
+  </g>
+  <line x1="190" y1="110" x2="212" y2="110" stroke="#475569" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="385" y1="110" x2="407" y2="110" stroke="#475569" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="580" y1="110" x2="602" y2="110" stroke="#475569" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- verify detail -->
+  <rect x="150" y="170" width="630" height="100" rx="10" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <line x1="692" y1="145" x2="692" y2="168" stroke="#1d4ed8" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="165" y="190" font-size="11" font-weight="bold" fill="#1e3a8a" font-family="Consolas, monospace">"verify": "npm run typecheck &amp;&amp; npm test &amp;&amp; npm run build"</text>
+
+  <g text-anchor="middle" font-size="11" font-weight="bold">
+    <rect x="175" y="205" width="140" height="45" rx="8" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.5"/>
+    <text x="245" y="225" fill="#1e3a8a">typecheck</text>
+    <text x="245" y="240" font-size="9" font-weight="normal" fill="#1e3a8a" font-family="Consolas, monospace">tsc --noEmit</text>
+
+    <rect x="370" y="205" width="140" height="45" rx="8" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.5"/>
+    <text x="440" y="225" fill="#1e3a8a">test</text>
+    <text x="440" y="240" font-size="9" font-weight="normal" fill="#1e3a8a" font-family="Consolas, monospace">node --test</text>
+
+    <rect x="565" y="205" width="140" height="45" rx="8" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.5"/>
+    <text x="635" y="225" fill="#1e3a8a">build</text>
+    <text x="635" y="240" font-size="9" font-weight="normal" fill="#1e3a8a" font-family="Consolas, monospace">tsc → dist/</text>
+  </g>
+  <line x1="315" y1="227" x2="367" y2="227" stroke="#475569" stroke-width="2" marker-end="url(#a)"/>
+  <text x="341" y="220" text-anchor="middle" font-size="10" font-weight="bold" fill="#475569">&amp;&amp;</text>
+  <line x1="510" y1="227" x2="562" y2="227" stroke="#475569" stroke-width="2" marker-end="url(#a)"/>
+  <text x="536" y="220" text-anchor="middle" font-size="10" font-weight="bold" fill="#475569">&amp;&amp;</text>
+
+  <text x="20" y="200" font-size="10" fill="#b91c1c">A failing step</text>
+  <text x="20" y="214" font-size="10" fill="#b91c1c">stops the chain:</text>
+  <text x="20" y="228" font-size="10" fill="#b91c1c">the job is red ✗</text>
+  <text x="20" y="252" font-size="10" fill="#15803d">All steps pass:</text>
+  <text x="20" y="266" font-size="10" fill="#15803d">the job is green ✓</text>
+</svg>

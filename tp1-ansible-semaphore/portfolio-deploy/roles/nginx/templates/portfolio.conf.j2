@@ -1,0 +1,9 @@
+server {
+    listen 80;
+    server_name {{ server_name }};
+
+    location / {
+        proxy_pass http://127.0.0.1:{{ app_port }};
+        # TODO : ajouter les en-têtes Host, X-Real-IP, X-Forwarded-For
+    }
+}

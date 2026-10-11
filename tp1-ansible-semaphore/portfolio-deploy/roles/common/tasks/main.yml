@@ -1,0 +1,4 @@
+---
+# TODO : mettre à jour le cache apt (ansible.builtin.apt, update_cache + cache_valid_time)
+# TODO : installer git, curl, build-essential
+# TODO : créer l'utilisateur {{ app_user }} (ansible.builtin.user)

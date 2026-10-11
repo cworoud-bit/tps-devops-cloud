@@ -1,0 +1,6 @@
+---
+# TODO : cloner {{ app_repo }} (version {{ app_version }}) dans {{ app_dir }} (ansible.builtin.git)
+#        -> enregistrer le résultat (register) pour détecter un changement
+# TODO : npm ci puis npm run build (déclenchés seulement si le code a changé ; pensez à changed_when / when)
+# TODO : démarrer l'application avec PM2 sur le port {{ app_port }}
+# TODO : notify: restart app  (uniquement si le code a changé)

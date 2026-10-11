@@ -1,0 +1,9 @@
+---
+# TODO : adapter ces valeurs
+app_repo: "https://github.com/<user>/<portfolio>.git"
+app_version: "main"
+app_dir: "/opt/portfolio"
+app_user: "deploy"
+app_port: 3000
+node_major: 20
+server_name: "portfolio.local"

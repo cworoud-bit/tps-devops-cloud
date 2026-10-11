@@ -1,0 +1,5 @@
+---
+# TODO : installer nginx
+# TODO : déployer templates/portfolio.conf.j2 vers /etc/nginx/sites-available/portfolio.conf (notify: reload nginx)
+# TODO : activer le site (lien symbolique dans sites-enabled) et retirer le site "default"
+# TODO : s'assurer que nginx est démarré et activé

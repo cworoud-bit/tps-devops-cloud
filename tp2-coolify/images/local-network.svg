@@ -1,0 +1,47 @@
+<svg viewBox="0 0 760 340" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+  </defs>
+  <rect width="760" height="340" fill="#f8fafc" rx="12"/>
+  <text x="380" y="28" text-anchor="middle" font-size="16" font-weight="bold" fill="#0f172a">Environnement 100 % local (sans domaine DNS)</text>
+
+  <!-- student PC -->
+  <rect x="20" y="55" width="270" height="245" rx="12" fill="#e2e8f0" stroke="#475569" stroke-width="2"/>
+  <text x="155" y="80" text-anchor="middle" font-size="14" font-weight="bold" fill="#0f172a">Poste de l'étudiant</text>
+  <rect x="40" y="95" width="230" height="46" rx="8" fill="#ffffff" stroke="#475569"/>
+  <text x="155" y="115" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">Navigateur</text>
+  <text x="155" y="132" text-anchor="middle" font-size="10" fill="#334155">http://portfolio.coolify.local</text>
+  <rect x="40" y="155" width="230" height="62" rx="8" fill="#fef3c7" stroke="#b45309"/>
+  <text x="155" y="175" text-anchor="middle" font-size="12" font-weight="bold" fill="#78350f">Fichier hosts</text>
+  <text x="155" y="193" text-anchor="middle" font-size="10" fill="#78350f" font-family="Courier New, monospace">192.168.56.10 portfolio.coolify.local</text>
+  <text x="155" y="209" text-anchor="middle" font-size="9" fill="#78350f">(IP à remplacer par celle de votre VM)</text>
+  <rect x="40" y="230" width="230" height="56" rx="8" fill="#ffffff" stroke="#475569"/>
+  <text x="155" y="249" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">Git + hyperviseur</text>
+  <text x="155" y="266" text-anchor="middle" font-size="10" fill="#334155">git push vers Forgejo (:3001)</text>
+  <text x="155" y="279" text-anchor="middle" font-size="10" fill="#334155">VirtualBox · VMware · Multipass…</text>
+
+  <!-- VM -->
+  <rect x="420" y="55" width="320" height="245" rx="12" fill="#ffffff" stroke="#0f766e" stroke-width="2.5"/>
+  <text x="580" y="80" text-anchor="middle" font-size="14" font-weight="bold" fill="#0f766e">VM Ubuntu 24.04 (192.168.56.10)</text>
+  <rect x="438" y="92" width="284" height="36" rx="8" fill="#ccfbf1" stroke="#0f766e"/>
+  <text x="580" y="115" text-anchor="middle" font-size="12" fill="#134e4a">Coolify : dashboard, port 8000</text>
+  <rect x="438" y="136" width="284" height="36" rx="8" fill="#fde68a" stroke="#b45309"/>
+  <text x="580" y="159" text-anchor="middle" font-size="12" fill="#78350f">Forgejo : dépôts Git, port 3001</text>
+  <rect x="438" y="180" width="284" height="36" rx="8" fill="#fed7aa" stroke="#c2410c"/>
+  <text x="580" y="203" text-anchor="middle" font-size="12" fill="#7c2d12">Traefik : port 80, routage par nom d'hôte</text>
+  <rect x="438" y="224" width="284" height="36" rx="8" fill="#bbf7d0" stroke="#15803d"/>
+  <text x="580" y="247" text-anchor="middle" font-size="12" fill="#14532d">Conteneur Next.js : port interne 3000</text>
+  <text x="580" y="284" text-anchor="middle" font-size="10" fill="#475569">Internet sortant requis (npm, images Docker)</text>
+
+  <!-- arrows -->
+  <line x1="290" y1="112" x2="418" y2="112" stroke="#475569" stroke-width="2" marker-end="url(#a)"/>
+  <text x="354" y="104" text-anchor="middle" font-size="10" fill="#475569">:8000</text>
+  <line x1="290" y1="154" x2="418" y2="154" stroke="#475569" stroke-width="2" marker-end="url(#a)"/>
+  <text x="354" y="146" text-anchor="middle" font-size="10" fill="#475569">:3001</text>
+  <line x1="290" y1="198" x2="418" y2="198" stroke="#475569" stroke-width="2" marker-end="url(#a)"/>
+  <text x="354" y="190" text-anchor="middle" font-size="10" fill="#475569">:80 + Host</text>
+
+  <text x="380" y="324" text-anchor="middle" font-size="11" fill="#475569">Réseau : mode « pont » (bridge) ou « réseau privé hôte » + NAT pour la sortie Internet</text>
+</svg>

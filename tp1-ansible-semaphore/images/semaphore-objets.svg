@@ -1,0 +1,43 @@
+<svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+  </defs>
+  <rect width="760" height="320" fill="#f8fafc" rx="12"/>
+  <text x="380" y="28" text-anchor="middle" font-size="16" font-weight="bold" fill="#0f172a">Objets Semaphore UI à configurer</text>
+
+  <g font-size="13" font-weight="bold" text-anchor="middle">
+    <rect x="30" y="55" width="190" height="50" rx="8" fill="#fde68a" stroke="#b45309" stroke-width="2"/>
+    <text x="125" y="78" fill="#78350f">1. Key Store</text>
+    <text x="125" y="95" font-size="10" font-weight="normal" fill="#78350f">clé SSH serveur / token Git</text>
+
+    <rect x="30" y="120" width="190" height="50" rx="8" fill="#fde68a" stroke="#b45309" stroke-width="2"/>
+    <text x="125" y="143" fill="#78350f">2. Repository</text>
+    <text x="125" y="160" font-size="10" font-weight="normal" fill="#78350f">URL Git + branche</text>
+
+    <rect x="30" y="185" width="190" height="50" rx="8" fill="#fde68a" stroke="#b45309" stroke-width="2"/>
+    <text x="125" y="208" fill="#78350f">3. Inventory</text>
+    <text x="125" y="225" font-size="10" font-weight="normal" fill="#78350f">hôtes cibles</text>
+
+    <rect x="30" y="250" width="190" height="50" rx="8" fill="#fde68a" stroke="#b45309" stroke-width="2"/>
+    <text x="125" y="273" fill="#78350f">4. Variable Group</text>
+    <text x="125" y="290" font-size="10" font-weight="normal" fill="#78350f">server_name, app_port…</text>
+
+    <rect x="310" y="130" width="190" height="80" rx="10" fill="#bfdbfe" stroke="#1d4ed8" stroke-width="2"/>
+    <text x="405" y="162" fill="#1e3a8a">5. Task Template</text>
+    <text x="405" y="180" font-size="11" font-weight="normal" fill="#1e3a8a">« Deploy Portfolio »</text>
+    <text x="405" y="196" font-size="10" font-weight="normal" fill="#1e3a8a">+ survey : app_version</text>
+
+    <rect x="570" y="130" width="160" height="80" rx="10" fill="#bbf7d0" stroke="#15803d" stroke-width="2"/>
+    <text x="650" y="162" fill="#14532d">6. Task (run)</text>
+    <text x="650" y="182" font-size="11" font-weight="normal" fill="#14532d">logs · statut</text>
+    <text x="650" y="198" font-size="10" font-weight="normal" fill="#14532d">cron / webhook (bonus)</text>
+  </g>
+
+  <path d="M220,80 C270,80 270,150 308,150" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#a)"/>
+  <path d="M220,145 C260,145 270,165 308,165" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#a)"/>
+  <path d="M220,210 C260,210 270,180 308,180" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#a)"/>
+  <path d="M220,275 C270,275 270,195 308,195" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#a)"/>
+  <line x1="500" y1="170" x2="568" y2="170" stroke="#475569" stroke-width="2" marker-end="url(#a)"/>
+</svg>

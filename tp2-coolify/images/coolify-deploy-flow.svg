@@ -1,0 +1,45 @@
+<svg viewBox="0 0 760 230" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+  </defs>
+  <rect width="760" height="230" fill="#f8fafc" rx="12"/>
+  <text x="380" y="28" text-anchor="middle" font-size="16" font-weight="bold" fill="#0f172a">Cycle d'un déploiement Coolify</text>
+
+  <g text-anchor="middle" font-size="12" font-weight="bold">
+    <rect x="15" y="60" width="105" height="70" rx="10" fill="#fde68a" stroke="#b45309" stroke-width="2"/>
+    <text x="67" y="90" fill="#78350f">1. git push</text>
+    <text x="67" y="108" font-size="10" font-weight="normal" fill="#78350f">vers Forgejo (main)</text>
+
+    <rect x="140" y="60" width="105" height="70" rx="10" fill="#e9d5ff" stroke="#7e22ce" stroke-width="2"/>
+    <text x="192" y="90" fill="#581c87">2. Webhook</text>
+    <text x="192" y="108" font-size="10" font-weight="normal" fill="#581c87">Forgejo → Coolify</text>
+
+    <rect x="265" y="60" width="105" height="70" rx="10" fill="#bfdbfe" stroke="#1d4ed8" stroke-width="2"/>
+    <text x="317" y="90" fill="#1e3a8a">3. Build</text>
+    <text x="317" y="108" font-size="10" font-weight="normal" fill="#1e3a8a">Nixpacks / Dockerfile</text>
+
+    <rect x="390" y="60" width="105" height="70" rx="10" fill="#ccfbf1" stroke="#0f766e" stroke-width="2"/>
+    <text x="442" y="90" fill="#134e4a">4. Image</text>
+    <text x="442" y="108" font-size="10" font-weight="normal" fill="#134e4a">conteneur Docker</text>
+
+    <rect x="515" y="60" width="105" height="70" rx="10" fill="#bbf7d0" stroke="#15803d" stroke-width="2"/>
+    <text x="567" y="90" fill="#14532d">5. Déploiement</text>
+    <text x="567" y="108" font-size="10" font-weight="normal" fill="#14532d">healthcheck OK</text>
+
+    <rect x="640" y="60" width="105" height="70" rx="10" fill="#fed7aa" stroke="#c2410c" stroke-width="2"/>
+    <text x="692" y="90" fill="#7c2d12">6. Proxy</text>
+    <text x="692" y="108" font-size="10" font-weight="normal" fill="#7c2d12">nom d'hôte local</text>
+  </g>
+
+  <line x1="120" y1="95" x2="138" y2="95" stroke="#475569" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="245" y1="95" x2="263" y2="95" stroke="#475569" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="370" y1="95" x2="388" y2="95" stroke="#475569" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="495" y1="95" x2="513" y2="95" stroke="#475569" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="620" y1="95" x2="638" y2="95" stroke="#475569" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- rollback -->
+  <path d="M567,132 C567,175 442,175 442,132" stroke="#b91c1c" stroke-width="2" fill="none" stroke-dasharray="5,3" marker-end="url(#a)"/>
+  <text x="505" y="195" text-anchor="middle" font-size="11" fill="#b91c1c">échec ou besoin de revenir en arrière : rollback vers l'image précédente</text>
+</svg>

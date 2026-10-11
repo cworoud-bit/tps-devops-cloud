@@ -1,0 +1,51 @@
+<svg viewBox="0 0 760 330" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/>
+    </marker>
+  </defs>
+  <rect width="760" height="330" fill="#f8fafc" rx="12"/>
+  <text x="380" y="28" text-anchor="middle" font-size="16" font-weight="bold" fill="#0f172a">Relier Coolify et Forgejo : les champs à faire correspondre</text>
+
+  <!-- Coolify panel -->
+  <rect x="20" y="50" width="320" height="245" rx="10" fill="#ccfbf1" stroke="#0f766e" stroke-width="2"/>
+  <text x="180" y="76" text-anchor="middle" font-size="14" font-weight="bold" fill="#134e4a">Coolify</text>
+  <text x="180" y="93" text-anchor="middle" font-size="10" fill="#134e4a">Application → Webhooks → Manual Git Webhooks</text>
+
+  <rect x="40" y="108" width="280" height="44" rx="6" fill="#ffffff" stroke="#0f766e"/>
+  <text x="52" y="126" font-size="10" fill="#475569">URL du webhook « Gitea » (à copier)</text>
+  <text x="52" y="143" font-size="10" fill="#0f172a" font-family="Courier New, monospace">http://IP:8000/webhooks/source/gitea/…</text>
+
+  <rect x="40" y="166" width="280" height="44" rx="6" fill="#ffffff" stroke="#0f766e"/>
+  <text x="52" y="184" font-size="10" fill="#475569">Secret (16 caractères minimum)</text>
+  <text x="52" y="201" font-size="11" fill="#0f172a" font-family="Courier New, monospace">••••••••••••••••</text>
+
+  <rect x="40" y="224" width="280" height="55" rx="6" fill="#ffffff" stroke="#0f766e"/>
+  <text x="52" y="242" font-size="10" fill="#475569">Advanced → Deployment → Auto deploy</text>
+  <text x="52" y="262" font-size="11" fill="#0f172a">« Deploy on push (webhooks) »</text>
+
+  <!-- Forgejo panel -->
+  <rect x="420" y="50" width="320" height="245" rx="10" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+  <text x="580" y="76" text-anchor="middle" font-size="14" font-weight="bold" fill="#78350f">Forgejo</text>
+  <text x="580" y="93" text-anchor="middle" font-size="10" fill="#78350f">Dépôt → Paramètres → Webhooks → Ajouter</text>
+
+  <rect x="440" y="108" width="280" height="44" rx="6" fill="#ffffff" stroke="#b45309"/>
+  <text x="452" y="126" font-size="10" fill="#475569">URL cible</text>
+  <text x="452" y="143" font-size="10" fill="#0f172a" font-family="Courier New, monospace">(la même URL)</text>
+
+  <rect x="440" y="166" width="280" height="44" rx="6" fill="#ffffff" stroke="#b45309"/>
+  <text x="452" y="184" font-size="10" fill="#475569">Secret</text>
+  <text x="452" y="201" font-size="11" fill="#0f172a" font-family="Courier New, monospace">(le même secret)</text>
+
+  <rect x="440" y="224" width="280" height="55" rx="6" fill="#ffffff" stroke="#b45309"/>
+  <text x="452" y="242" font-size="10" fill="#475569">Type de contenu : application/json</text>
+  <text x="452" y="259" font-size="10" fill="#0f172a">Événement : Push · filtre de branche : main</text>
+  <text x="452" y="272" font-size="10" fill="#0f172a">Puis « Tester la livraison »</text>
+
+  <!-- arrows -->
+  <line x1="322" y1="130" x2="438" y2="130" stroke="#b91c1c" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="322" y1="188" x2="438" y2="188" stroke="#b91c1c" stroke-width="2" marker-end="url(#a)"/>
+  <text x="380" y="122" text-anchor="middle" font-size="10" fill="#b91c1c">copier</text>
+  <text x="380" y="180" text-anchor="middle" font-size="10" fill="#b91c1c">copier</text>
+  <text x="380" y="316" text-anchor="middle" font-size="11" fill="#475569">Un push sur main déclenche alors un redéploiement automatique</text>
+</svg>

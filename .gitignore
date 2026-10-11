@@ -1,0 +1,21 @@
+# Ansible
+*.retry
+.vault_pass
+vault_pass.txt
+
+# Clés et secrets : ne jamais les versionner
+*.pem
+id_rsa*
+id_ed25519*
+*.key
+
+# Divers
+.DS_Store
+node_modules/
+
+# Node / TP3
+dist/
+.env
+
+# Contexte agents (local)
+AGENTS.md

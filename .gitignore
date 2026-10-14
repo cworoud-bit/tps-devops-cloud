@@ -17,5 +17,13 @@ node_modules/
 dist/
 .env
 
+# Vagrant / Terraform (TP5, TP6)
+.vagrant/
+*.box
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+
 # Contexte agents (local)
 AGENTS.md

@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 430" width="820" height="430" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>Cycle de vie d'une machine Vagrant et commandes de gestion des box</title>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#334155"/>
+    </marker>
+  </defs>
+  <rect width="820" height="430" rx="12" fill="#ffffff"/>
+  <text x="410" y="32" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">Flux de travail Vagrant</text>
+
+  <!-- Box store -->
+  <rect x="20" y="55" width="200" height="355" rx="10" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="120" y="80" text-anchor="middle" font-size="15" font-weight="700" fill="#7c2d12">Cache local des box</text>
+  <text x="120" y="98" text-anchor="middle" font-size="11" fill="#7c2d12">~/.vagrant.d/boxes</text>
+  <g font-family="Consolas, monospace" font-size="12" fill="#0f172a">
+    <rect x="35" y="112" width="170" height="28" rx="5" fill="#ffffff" stroke="#fdba74"/>
+    <text x="45" y="131">vagrant box add</text>
+    <rect x="35" y="148" width="170" height="28" rx="5" fill="#ffffff" stroke="#fdba74"/>
+    <text x="45" y="167">vagrant box list</text>
+    <rect x="35" y="184" width="170" height="28" rx="5" fill="#ffffff" stroke="#fdba74"/>
+    <text x="45" y="203">vagrant box remove</text>
+    <rect x="35" y="220" width="170" height="28" rx="5" fill="#ffffff" stroke="#fdba74"/>
+    <text x="45" y="239">vagrant box update</text>
+  </g>
+  <text x="120" y="282" text-anchor="middle" font-size="11.5" fill="#7c2d12">Les box viennent de</text>
+  <text x="120" y="298" text-anchor="middle" font-size="11.5" fill="#7c2d12">portal.cloud.hashicorp.com</text>
+  <text x="120" y="314" text-anchor="middle" font-size="11.5" fill="#7c2d12">ou d'un fichier .box local</text>
+  <rect x="35" y="335" width="170" height="56" rx="5" fill="#ffffff" stroke="#fdba74"/>
+  <text x="120" y="356" text-anchor="middle" font-size="12" font-family="Consolas, monospace" fill="#0f172a">vagrant package</text>
+  <text x="120" y="376" text-anchor="middle" font-size="11" fill="#475569">VM en marche → package.box</text>
+
+  <!-- Lifecycle states -->
+  <g font-size="14" font-weight="700">
+    <rect x="270" y="70" width="150" height="48" rx="24" fill="#f1f5f9" stroke="#475569" stroke-width="2"/>
+    <text x="345" y="99" text-anchor="middle" fill="#0f172a">non créée</text>
+
+    <rect x="610" y="70" width="180" height="48" rx="24" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+    <text x="700" y="99" text-anchor="middle" fill="#14532d">en marche</text>
+
+    <rect x="610" y="270" width="180" height="48" rx="24" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+    <text x="700" y="299" text-anchor="middle" fill="#1e3a8a">arrêtée</text>
+  </g>
+
+  <!-- Vagrantfile -->
+  <rect x="270" y="270" width="150" height="48" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+  <text x="345" y="292" text-anchor="middle" font-size="13" font-weight="700" fill="#4c1d95">Vagrantfile</text>
+  <text x="345" y="309" text-anchor="middle" font-size="11" font-family="Consolas, monospace" fill="#4c1d95">vagrant init &lt;box&gt;</text>
+  <line x1="345" y1="268" x2="345" y2="120" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arr)"/>
+  <text x="352" y="200" font-size="11" fill="#4c1d95">décrit</text>
+
+  <g stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arr)">
+    <!-- up -->
+    <path d="M420,86 L608,86"/>
+    <!-- halt -->
+    <path d="M730,120 L730,268"/>
+    <!-- up from poweroff -->
+    <path d="M670,268 L670,120"/>
+    <!-- destroy -->
+    <path d="M620,108 C540,160 470,140 400,120"/>
+    <!-- self loops on running -->
+    <path d="M790,84 C830,40 760,30 760,68"/>
+  </g>
+  <g font-family="Consolas, monospace" font-size="12" fill="#0f172a">
+    <text x="514" y="78" text-anchor="middle" font-weight="700">vagrant up</text>
+    <text x="440" y="160">vagrant destroy</text>
+    <text x="738" y="200">vagrant halt</text>
+    <text x="662" y="200" text-anchor="end">vagrant up</text>
+  </g>
+  <text x="514" y="60" text-anchor="middle" font-size="10.5" fill="#475569">1re fois : import de la box + provisionnement</text>
+
+  <rect x="455" y="340" width="335" height="70" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="470" y="360" font-size="12" font-weight="700" fill="#0f172a">VM en marche :</text>
+  <text x="470" y="378" font-size="11.5" font-family="Consolas, monospace" fill="#0f172a">vagrant ssh | status | provision</text>
+  <text x="470" y="396" font-size="11.5" font-family="Consolas, monospace" fill="#0f172a">vagrant reload --provision</text>
+  <text x="732" y="30" font-size="10.5" fill="#475569">reload</text>
+
+  <line x1="205" y1="126" x2="268" y2="94" stroke="#ea580c" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arr)"/>
+</svg>

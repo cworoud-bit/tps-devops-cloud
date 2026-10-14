@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 440" width="820" height="440" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>Architecture Ansible : le nœud de contrôle pousse les modules vers les nœuds gérés via SSH</title>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#334155"/>
+    </marker>
+  </defs>
+  <rect width="820" height="440" rx="12" fill="#ffffff"/>
+  <text x="410" y="32" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">Ansible : automatisation sans agent, en mode push</text>
+
+  <!-- Control node -->
+  <rect x="30" y="60" width="270" height="290" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="165" y="88" text-anchor="middle" font-size="16" font-weight="700" fill="#1e3a8a">Nœud de contrôle</text>
+  <text x="165" y="107" text-anchor="middle" font-size="12" fill="#1e3a8a">Ubuntu 26.04 + ansible-core</text>
+  <g font-size="13" fill="#0f172a">
+    <rect x="50" y="122" width="230" height="40" rx="6" fill="#ffffff" stroke="#93c5fd"/>
+    <text x="65" y="140" font-weight="600">inventory.txt / .yml</text>
+    <text x="65" y="155" font-size="11" fill="#475569">quels hôtes, quels groupes</text>
+    <rect x="50" y="170" width="230" height="40" rx="6" fill="#ffffff" stroke="#93c5fd"/>
+    <text x="65" y="188" font-weight="600">ansible.cfg</text>
+    <text x="65" y="203" font-size="11" fill="#475569">réglages par défaut du projet</text>
+    <rect x="50" y="218" width="230" height="40" rx="6" fill="#ffffff" stroke="#93c5fd"/>
+    <text x="65" y="236" font-weight="600">playbook.yml / roles/</text>
+    <text x="65" y="251" font-size="11" fill="#475569">état souhaité (tâches)</text>
+    <rect x="50" y="266" width="230" height="40" rx="6" fill="#ffffff" stroke="#93c5fd"/>
+    <text x="65" y="284" font-weight="600">~/.ssh/id_ed25519</text>
+    <text x="65" y="299" font-size="11" fill="#475569">identité SSH (partie 3)</text>
+  </g>
+  <text x="165" y="335" text-anchor="middle" font-size="12" fill="#1e3a8a">$ ansible-playbook site.yml</text>
+
+  <!-- Managed nodes -->
+  <rect x="530" y="60" width="260" height="125" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="660" y="88" text-anchor="middle" font-size="16" font-weight="700" fill="#14532d">Nœud géré 1</text>
+  <text x="660" y="110" text-anchor="middle" font-size="13" fill="#0f172a">192.168.1.66</text>
+  <text x="660" y="130" text-anchor="middle" font-size="12" fill="#14532d">groupes : nodes, ftpserver</text>
+  <text x="660" y="160" text-anchor="middle" font-size="11" fill="#475569">seulement : sshd + Python 3</text>
+
+  <rect x="530" y="225" width="260" height="125" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="660" y="253" text-anchor="middle" font-size="16" font-weight="700" fill="#14532d">Nœud géré 2</text>
+  <text x="660" y="275" text-anchor="middle" font-size="13" fill="#0f172a">192.168.1.85</text>
+  <text x="660" y="295" text-anchor="middle" font-size="12" fill="#14532d">groupes : nodes, webserver</text>
+  <text x="660" y="325" text-anchor="middle" font-size="11" fill="#475569">seulement : sshd + Python 3</text>
+
+  <!-- Arrows -->
+  <path d="M300,150 C410,150 420,122 528,122" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arr)"/>
+  <path d="M300,260 C410,260 420,288 528,288" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="362" y="190" width="110" height="26" rx="13" fill="#f1f5f9" stroke="#94a3b8"/>
+  <text x="417" y="208" text-anchor="middle" font-size="12" font-weight="600" fill="#334155">SSH · port 22</text>
+  <text x="417" y="132" text-anchor="middle" font-size="11" fill="#475569">envoi du module</text>
+  <text x="417" y="296" text-anchor="middle" font-size="11" fill="#475569">envoi du module</text>
+
+  <!-- Steps -->
+  <rect x="30" y="368" width="760" height="56" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="50" y="390" font-size="12.5" fill="#0f172a"><tspan font-weight="700">Par tâche :</tspan>  ① connexion SSH  →  ② copie du module Python sur le nœud  →  ③ exécution (sudo si become: true)</text>
+  <text x="50" y="410" font-size="12.5" fill="#0f172a"><tspan dx="58">④ retour JSON (ok / changed / failed)  →  ⑤ suppression des fichiers temporaires. Aucun agent ne reste.</tspan></text>
+</svg>

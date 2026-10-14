@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 460" width="820" height="460" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>Virtualisation imbriquée : hôte Windows Hyper-V, VM Ubuntu avec VirtualBox et Vagrant, VM invitées Vagrant à l'intérieur</title>
+  <rect width="820" height="460" rx="12" fill="#ffffff"/>
+  <text x="410" y="32" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">Environnement du TP : trois niveaux de virtualisation</text>
+
+  <!-- Layer 0: physical -->
+  <rect x="20" y="50" width="780" height="395" rx="12" fill="#f1f5f9" stroke="#475569" stroke-width="2"/>
+  <text x="40" y="76" font-size="15" font-weight="700" fill="#0f172a">L0 · PC physique : Windows 11 + Hyper-V</text>
+  <text x="40" y="96" font-size="12" fill="#475569">VT-x / AMD-V activé dans le BIOS/UEFI</text>
+  <rect x="520" y="62" width="265" height="40" rx="6" fill="#ffffff" stroke="#94a3b8"/>
+  <text x="532" y="80" font-size="11.5" font-family="Consolas, monospace" fill="#0f172a">Set-VMProcessor -VMName &lt;VM&gt;</text>
+  <text x="532" y="95" font-size="11.5" font-family="Consolas, monospace" fill="#0f172a">  -ExposeVirtualizationExtensions $true</text>
+
+  <!-- Layer 1: Ubuntu VM -->
+  <rect x="45" y="115" width="730" height="310" rx="12" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="65" y="141" font-size="15" font-weight="700" fill="#1e3a8a">L1 · VM Hyper-V : Ubuntu 26.04 (la « VM de lab »)</text>
+  <g font-size="12.5" fill="#0f172a">
+    <rect x="65" y="155" width="150" height="32" rx="6" fill="#ffffff" stroke="#93c5fd"/>
+    <text x="140" y="176" text-anchor="middle" font-weight="600">VirtualBox</text>
+    <rect x="225" y="155" width="150" height="32" rx="6" fill="#ffffff" stroke="#93c5fd"/>
+    <text x="300" y="176" text-anchor="middle" font-weight="600">Vagrant</text>
+    <rect x="385" y="155" width="150" height="32" rx="6" fill="#ffffff" stroke="#93c5fd"/>
+    <text x="460" y="176" text-anchor="middle" font-weight="600">Ansible</text>
+  </g>
+  <text x="550" y="168" font-size="11.5" fill="#1e3a8a">Vagrant pilote VirtualBox,</text>
+  <text x="550" y="183" font-size="11.5" fill="#1e3a8a">Ansible provisionne les invitées</text>
+
+  <!-- Layer 2: guests -->
+  <rect x="70" y="205" width="320" height="200" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="90" y="231" font-size="14" font-weight="700" fill="#14532d">L2 · VM invitée Vagrant n° 1</text>
+  <text x="90" y="252" font-size="12" fill="#14532d">box: bento/ubuntu-24.04</text>
+  <rect x="90" y="268" width="280" height="36" rx="6" fill="#ffffff" stroke="#86efac"/>
+  <text x="230" y="291" text-anchor="middle" font-size="12.5" fill="#0f172a">Apache / Docker / Jenkins …</text>
+  <text x="90" y="330" font-size="12" fill="#14532d">/vagrant ⇄ dossier du projet (synchronisé)</text>
+  <text x="90" y="350" font-size="12" fill="#14532d">invitée:80 ⇄ VM de lab:8080 (redirigé)</text>
+  <text x="90" y="385" font-size="11" fill="#475569">VT-x imbriqué requis, sinon VirtualBox échoue</text>
+
+  <rect x="430" y="205" width="320" height="200" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="450" y="231" font-size="14" font-weight="700" fill="#14532d">L2 · VM invitée Vagrant n° 2</text>
+  <text x="450" y="252" font-size="12" fill="#14532d">(Vagrantfile multi-machines)</text>
+  <rect x="450" y="268" width="280" height="36" rx="6" fill="#ffffff" stroke="#86efac"/>
+  <text x="590" y="291" text-anchor="middle" font-size="12.5" fill="#0f172a">Docker / Portainer / containers</text>
+  <text x="450" y="330" font-size="12" fill="#14532d">private_network, ex. 192.168.56.11</text>
+  <text x="450" y="385" font-size="11" fill="#475569">VM de lab : ≥ 8 Go de RAM et ≥ 4 vCPU</text>
+</svg>

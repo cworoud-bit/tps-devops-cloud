@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 400" width="820" height="400" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>Comment une requête HTTP atteint Apache dans la VM Vagrant par redirection de port, et comment le dossier synchronisé est servi</title>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#334155"/>
+    </marker>
+  </defs>
+  <rect width="820" height="400" rx="12" fill="#ffffff"/>
+  <text x="410" y="32" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">Démo Vagrant : port redirigé + dossier synchronisé</text>
+
+  <!-- Physical PC -->
+  <rect x="20" y="60" width="180" height="200" rx="10" fill="#f1f5f9" stroke="#475569" stroke-width="2"/>
+  <text x="110" y="86" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">PC physique</text>
+  <rect x="40" y="105" width="140" height="80" rx="6" fill="#ffffff" stroke="#94a3b8"/>
+  <text x="110" y="130" text-anchor="middle" font-size="12.5" font-weight="600" fill="#0f172a">Navigateur</text>
+  <text x="110" y="152" text-anchor="middle" font-size="10.5" font-family="Consolas, monospace" fill="#2563eb">http://&lt;LAB-VM-IP&gt;</text>
+  <text x="110" y="168" text-anchor="middle" font-size="10.5" font-family="Consolas, monospace" fill="#2563eb">:8080</text>
+
+  <!-- Lab VM -->
+  <rect x="250" y="60" width="550" height="320" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="270" y="86" font-size="14" font-weight="700" fill="#1e3a8a">VM de lab (Ubuntu 26.04) : ex. 192.168.1.50</text>
+
+  <rect x="270" y="110" width="150" height="60" rx="8" fill="#ffffff" stroke="#2563eb"/>
+  <text x="345" y="134" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">port 8080</text>
+  <text x="345" y="153" text-anchor="middle" font-size="11" fill="#475569">écoute NAT de VirtualBox</text>
+
+  <rect x="270" y="235" width="150" height="125" rx="8" fill="#ffffff" stroke="#7c3aed"/>
+  <text x="345" y="258" text-anchor="middle" font-size="13" font-weight="700" fill="#4c1d95">vagrant_demo/</text>
+  <g font-family="Consolas, monospace" font-size="11.5" fill="#0f172a">
+    <text x="285" y="282">├──&#160;Vagrantfile</text>
+    <text x="285" y="302">└──&#160;web/</text>
+    <text x="285" y="322">&#160;&#160;&#160;&#160;└──&#160;index.html</text>
+  </g>
+
+  <!-- Guest -->
+  <rect x="480" y="100" width="300" height="260" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="630" y="126" text-anchor="middle" font-size="14" font-weight="700" fill="#14532d">Invitée Vagrant : vagrant-web1</text>
+  <text x="630" y="144" text-anchor="middle" font-size="11" fill="#14532d">IP NAT 10.0.2.15 (non joignable directement)</text>
+  <rect x="500" y="160" width="260" height="60" rx="8" fill="#ffffff" stroke="#16a34a"/>
+  <text x="630" y="185" text-anchor="middle" font-size="13" font-weight="700" fill="#14532d">Apache2 sur le port 80</text>
+  <text x="630" y="204" text-anchor="middle" font-size="11" fill="#475569">installé par le provisioner shell</text>
+  <rect x="500" y="250" width="260" height="60" rx="8" fill="#ffffff" stroke="#7c3aed"/>
+  <text x="630" y="275" text-anchor="middle" font-size="13" font-weight="700" fill="#4c1d95">/var/www/html</text>
+  <text x="630" y="294" text-anchor="middle" font-size="11" fill="#475569">DocumentRoot d'Apache</text>
+  <line x1="630" y1="248" x2="630" y2="222" stroke="#334155" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="638" y="240" font-size="10.5" fill="#475569">sert</text>
+
+  <!-- arrows -->
+  <path d="M180,140 L268,140" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <text x="224" y="132" text-anchor="middle" font-size="11" font-weight="600" fill="#334155">①</text>
+  <path d="M420,140 C450,140 460,190 498,190" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <text x="345" y="188" text-anchor="middle" font-size="11" font-weight="600" fill="#334155">② NAT → invitée :80</text>
+  <path d="M420,300 L498,282" stroke="#7c3aed" stroke-width="2" stroke-dasharray="6 4" fill="none" marker-start="url(#arr)" marker-end="url(#arr)"/>
+  <text x="458" y="325" text-anchor="middle" font-size="11" font-weight="600" fill="#4c1d95">synced_folder</text>
+
+  <rect x="20" y="280" width="215" height="100" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="32" y="300" font-size="11.5" font-weight="700" fill="#0f172a">Extrait du Vagrantfile :</text>
+  <g font-family="Consolas, monospace" font-size="10" fill="#0f172a">
+    <text x="32" y="320">forwarded_port guest: 80,</text>
+    <text x="32" y="335">  host: 8080, host_ip: "0.0.0.0"</text>
+    <text x="32" y="355">synced_folder "web/",</text>
+    <text x="32" y="370">  "/var/www/html"</text>
+  </g>
+</svg>

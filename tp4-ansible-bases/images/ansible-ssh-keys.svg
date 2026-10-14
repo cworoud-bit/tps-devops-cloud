@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 400" width="820" height="400" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>Authentification SSH par clé entre le nœud de contrôle Ansible et les nœuds gérés</title>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#334155"/>
+    </marker>
+  </defs>
+  <rect width="820" height="400" rx="12" fill="#ffffff"/>
+  <text x="410" y="32" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">SSH sans mot de passe avec une paire de clés</text>
+
+  <!-- Control node -->
+  <rect x="30" y="60" width="300" height="230" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="180" y="88" text-anchor="middle" font-size="16" font-weight="700" fill="#1e3a8a">Nœud de contrôle</text>
+  <text x="50" y="118" font-size="13" font-weight="600" fill="#0f172a">① ssh-keygen -t ed25519</text>
+  <rect x="50" y="132" width="260" height="56" rx="6" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="62" y="154" font-size="13" font-weight="700" fill="#7f1d1d">~/.ssh/id_ed25519</text>
+  <text x="62" y="174" font-size="11" fill="#7f1d1d">Clé PRIVÉE : ne quitte jamais ce poste</text>
+  <rect x="50" y="200" width="260" height="56" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="62" y="222" font-size="13" font-weight="700" fill="#14532d">~/.ssh/id_ed25519.pub</text>
+  <text x="62" y="242" font-size="11" fill="#14532d">Clé PUBLIQUE : peut être copiée partout</text>
+
+  <!-- Nodes -->
+  <g>
+    <rect x="510" y="60" width="280" height="100" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+    <text x="650" y="86" text-anchor="middle" font-size="15" font-weight="700" fill="#14532d">Nœud 192.168.1.66</text>
+    <rect x="530" y="100" width="240" height="44" rx="6" fill="#ffffff" stroke="#86efac"/>
+    <text x="545" y="119" font-size="12" font-family="Consolas, monospace" fill="#0f172a">~/.ssh/authorized_keys</text>
+    <text x="545" y="136" font-size="11" fill="#475569">contient id_ed25519.pub</text>
+
+    <rect x="510" y="190" width="280" height="100" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+    <text x="650" y="216" text-anchor="middle" font-size="15" font-weight="700" fill="#14532d">Nœud 192.168.1.85</text>
+    <rect x="530" y="230" width="240" height="44" rx="6" fill="#ffffff" stroke="#86efac"/>
+    <text x="545" y="249" font-size="12" font-family="Consolas, monospace" fill="#0f172a">~/.ssh/authorized_keys</text>
+    <text x="545" y="266" font-size="11" fill="#475569">contient id_ed25519.pub</text>
+  </g>
+
+  <path d="M310,228 C420,228 420,122 528,122" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arr)"/>
+  <path d="M310,228 C420,228 420,252 528,252" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="420" y="168" text-anchor="middle" font-size="12.5" font-weight="600" fill="#14532d">② ssh-copy-id</text>
+  <text x="420" y="184" text-anchor="middle" font-size="11" fill="#475569">(mot de passe demandé une fois)</text>
+
+  <!-- Step 3 -->
+  <rect x="30" y="310" width="760" height="70" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="50" y="336" font-size="13" fill="#0f172a"><tspan font-weight="700">③ Connexions suivantes :</tspan> le nœud envoie un défi, le nœud de contrôle le signe avec la clé privée,</text>
+  <text x="50" y="358" font-size="13" fill="#0f172a">le nœud le vérifie avec la clé publique ⇒ <tspan font-weight="700">plus de mot de passe SSH</tspan> (sans <tspan font-family="Consolas, monospace">-k</tspan>). <tspan font-family="Consolas, monospace">-K</tspan> reste utile pour sudo.</text>
+</svg>

@@ -1,2 +1,6 @@
 ---
-# TODO : handler "restart app" (redémarrage du process PM2)
+- name: restart app
+  ansible.builtin.command: pm2 restart portfolio --update-env
+  environment:
+    PORT: "{{ app_port }}"
+  become_user: "{{ app_user }}"

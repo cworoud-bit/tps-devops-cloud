@@ -4,8 +4,8 @@
 
 ## Liens
 
-- Dépôt GitHub : https://github.com/YOUR_USERNAME/cicd-lab
-- Production (Render) : https://YOUR_SERVICE.onrender.com
+- Dépôt GitHub : https://github.com/cworoud-bit/cicd-lab
+- Production (Render) : https://cicd-lab-3ova.onrender.com/
 
 ## 1. Le pipeline avec mes mots
 

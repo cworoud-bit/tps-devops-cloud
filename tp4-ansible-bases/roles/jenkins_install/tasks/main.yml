@@ -1,0 +1,46 @@
+---
+- name: Installer Java et les prérequis (Java avant Jenkins)
+  ansible.builtin.apt:
+    name:
+      - "{{ jenkins_java_package }}"
+      - ca-certificates
+      - curl
+      - gnupg
+    state: present
+    update_cache: true
+    cache_valid_time: 3600
+
+- name: Créer le dossier des clés apt
+  ansible.builtin.file:
+    path: /etc/apt/keyrings
+    state: directory
+    mode: "0755"
+
+- name: Télécharger la clé GPG du dépôt Jenkins
+  ansible.builtin.get_url:
+    url: "{{ jenkins_key_url }}"
+    dest: /etc/apt/keyrings/jenkins-keyring.asc
+    mode: "0644"
+
+- name: Ajouter le dépôt Jenkins (LTS)
+  ansible.builtin.apt_repository:
+    repo: "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/"
+    state: present
+    filename: jenkins
+
+- name: Installer Jenkins
+  ansible.builtin.apt:
+    name: jenkins
+    state: present
+    update_cache: true
+
+- name: Démarrer et activer Jenkins au boot
+  ansible.builtin.service:
+    name: jenkins
+    state: started
+    enabled: true
+
+- name: Attendre que Jenkins écoute sur son port
+  ansible.builtin.wait_for:
+    port: "{{ jenkins_port }}"
+    timeout: 180

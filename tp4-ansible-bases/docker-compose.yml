@@ -1,0 +1,9 @@
+services:
+  web:
+    build: .
+    # Pour Docker Hub : image: VOTRE_COMPTE/demo-web:latest (après docker push)
+    image: demo-web:latest
+    container_name: demo-web
+    ports:
+      - "8081:80"
+    restart: unless-stopped

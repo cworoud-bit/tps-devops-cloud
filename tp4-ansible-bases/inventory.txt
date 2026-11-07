@@ -1,0 +1,13 @@
+[webserver]
+node1 ansible_host=192.168.220.139
+
+[ftpserver]
+node2 ansible_host=192.168.220.138
+
+# "nodes" est un groupe parent qui contient les deux groupes ci-dessus
+[nodes:children]
+webserver
+ftpserver
+
+[nodes:vars]
+ansible_user=wrida

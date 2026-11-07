@@ -1,0 +1,35 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "bento/ubuntu-24.04"
+
+  # Ports du host (vagrant-lab) : lab1 -> 8080/8081/9443, lab2 -> 8082/8083/9444
+  nodes = {
+    "lab1" => { ip: "192.168.56.11", jenkins: 8080, web: 8081, portainer: 9443 },
+    "lab2" => { ip: "192.168.56.12", jenkins: 8082, web: 8083, portainer: 9444 }
+  }
+
+  nodes.each do |name, n|
+    config.vm.define name do |node|
+      node.vm.hostname = name
+      node.vm.network "private_network", ip: n[:ip]
+      node.vm.network "forwarded_port", guest: 8080, host: n[:jenkins],   host_ip: "0.0.0.0"
+      node.vm.network "forwarded_port", guest: 8081, host: n[:web],       host_ip: "0.0.0.0"
+      node.vm.network "forwarded_port", guest: 9443, host: n[:portainer], host_ip: "0.0.0.0"
+
+      node.vm.provider "virtualbox" do |vb|
+        vb.name = name
+        vb.memory = 2048
+        vb.cpus = 1
+      end
+
+      # Ansible une seule fois, apres que les 2 VM soient demarrees
+      if name == "lab2"
+        node.vm.provision "ansible" do |a|
+          a.playbook = "playbook.yml"
+          a.limit = "all"
+          a.become = true
+          a.groups = { "nodes" => ["lab1", "lab2"] }
+        end
+      end
+    end
+  end
+end

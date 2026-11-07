@@ -1,0 +1,31 @@
+---
+- name: Créer le dossier de l'application
+  ansible.builtin.file:
+    path: "{{ app_dir }}"
+    state: directory
+    mode: "0755"
+
+- name: Copier Dockerfile, index.html et docker-compose.yml
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: "{{ app_dir }}/{{ item }}"
+    mode: "0644"
+  loop:
+    - Dockerfile
+    - index.html
+    - docker-compose.yml
+
+- name: Construire l'image et démarrer le conteneur avec Docker Compose
+  community.docker.docker_compose_v2:
+    project_src: "{{ app_dir }}"
+    state: present
+
+- name: Tester l'accès au site web conteneurisé
+  ansible.builtin.uri:
+    url: "http://localhost:{{ web_port }}"
+    return_content: true
+  register: web_check
+  retries: 10
+  delay: 3
+  until: web_check.status == 200
+  changed_when: false

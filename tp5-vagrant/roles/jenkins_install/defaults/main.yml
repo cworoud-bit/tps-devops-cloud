@@ -1,0 +1,4 @@
+---
+jenkins_java_package: openjdk-21-jre-headless
+jenkins_key_url: https://pkg.jenkins.io/debian-stable/jenkins.io-2026.key
+jenkins_port: 8080

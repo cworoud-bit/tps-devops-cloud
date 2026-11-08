@@ -1,0 +1,35 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "bento/ubuntu-24.04"
+
+  nodes = {
+    "vm1" => { ip: "192.168.56.21", port: 8001, host_port: 18001 },
+    "vm2" => { ip: "192.168.56.22", port: 8002, host_port: 18002 }
+  }
+
+  nodes.each do |name, n|
+    config.vm.define name do |node|
+      node.vm.hostname = name
+      node.vm.network "private_network", ip: n[:ip]
+      node.vm.network "forwarded_port", guest: n[:port], host: n[:host_port], host_ip: "0.0.0.0"
+
+      node.vm.provider "virtualbox" do |vb|
+        vb.name = name
+        vb.memory = 1024
+        vb.cpus = 1
+      end
+
+      if name == "vm2"
+        node.vm.provision "ansible" do |a|
+          a.playbook = "playbook.yml"
+          a.limit = "all"
+          a.become = true
+          a.groups = { "vms" => ["vm1", "vm2"] }
+          a.host_vars = {
+            "vm1" => { "cv_port" => 8001 },
+            "vm2" => { "cv_port" => 8002 }
+          }
+        end
+      end
+    end
+  end
+end

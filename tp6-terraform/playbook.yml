@@ -1,0 +1,57 @@
+---
+- name: Installer Docker et Terraform, puis déployer le CV avec Terraform
+  hosts: vms
+  become: true
+
+  tasks:
+    - name: Installer les prérequis
+      ansible.builtin.apt:
+        name: [ca-certificates, curl, gnupg]
+        update_cache: true
+
+    - name: Ajouter la clé du dépôt HashiCorp
+      ansible.builtin.get_url:
+        url: https://apt.releases.hashicorp.com/gpg
+        dest: /etc/apt/keyrings/hashicorp.asc
+        mode: "0644"
+
+    - name: Ajouter le dépôt HashiCorp
+      ansible.builtin.apt_repository:
+        repo: "deb [signed-by=/etc/apt/keyrings/hashicorp.asc] https://apt.releases.hashicorp.com {{ ansible_distribution_release }} main"
+        state: present
+
+    - name: Installer Docker et Terraform
+      ansible.builtin.apt:
+        name: [docker.io, terraform]
+        update_cache: true
+
+    - name: Démarrer et activer Docker
+      ansible.builtin.service:
+        name: docker
+        state: started
+        enabled: true
+
+    - name: Créer le dossier Terraform
+      ansible.builtin.file:
+        path: /opt/terraform-cv
+        state: directory
+        mode: "0755"
+
+    - name: Copier la configuration Terraform
+      ansible.builtin.copy:
+        src: terraform/cv.tf
+        dest: /opt/terraform-cv/cv.tf
+        mode: "0644"
+
+    - name: Terraform init
+      ansible.builtin.command: terraform init -input=false
+      args:
+        chdir: /opt/terraform-cv
+        creates: /opt/terraform-cv/.terraform.lock.hcl
+
+    - name: Terraform apply (conteneur CV)
+      ansible.builtin.command: terraform apply -auto-approve -input=false -var cv_port={{ cv_port }}
+      args:
+        chdir: /opt/terraform-cv
+      register: tf
+      changed_when: "'0 added, 0 changed, 0 destroyed' not in tf.stdout"

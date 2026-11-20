@@ -97,7 +97,13 @@ stage('Security') {
         archiveArtifacts artifacts: 'image.txt', fingerprint: true
       }
     }
-
+stage('Image scan') {
+  steps {
+    sh '''docker run --rm -v "$PWD:/src" -v /var/run/docker.sock:/var/run/docker.sock \
+      aquasec/trivy:latest image --ignorefile /src/.trivyignore \
+      --severity CRITICAL --exit-code 1 vuln-app:ci'''
+  }
+}
     stage('Push') {
       when {
         expression {

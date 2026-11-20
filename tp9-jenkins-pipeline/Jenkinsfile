@@ -68,7 +68,28 @@ pipeline {
         }
       }
     }
-
+stage('Security') {
+  parallel {
+    stage('Gitleaks') {
+      steps {
+        sh 'mkdir -p reports'
+        sh 'docker run --rm -v "$PWD:/repo" ghcr.io/gitleaks/gitleaks:v8.30.0 git /repo --report-format json --report-path /repo/reports/gitleaks.json'
+      }
+    }
+    stage('Semgrep') {
+      steps {
+        sh 'mkdir -p reports'
+        sh 'docker run --rm -v "$PWD:/src" semgrep/semgrep semgrep scan --config p/javascript --config p/owasp-top-ten --error --json --output /src/reports/semgrep.json /src'
+      }
+    }
+    stage('npm audit') {
+      agent { docker { image 'node:24-alpine'; reuseNode true } }
+      steps {
+        sh 'mkdir -p reports && npm audit --audit-level=critical --json > reports/npm-audit.json'
+      }
+    }
+  }
+}
     stage('Build image') {
       steps {
         sh 'docker build -t "$IMAGE_NAME:$SHORT_SHA" --label "org.opencontainers.image.revision=$GIT_COMMIT" .'

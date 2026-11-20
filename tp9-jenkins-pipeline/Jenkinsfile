@@ -125,6 +125,10 @@ stage('Image scan') {
   post {
     always {
       junit allowEmptyResults: true, testResults: 'reports/junit.xml'
+       archiveArtifacts(
+        artifacts: 'reports/**',
+        allowEmptyArchive: true
+    )
     }
     success {
       echo "Pipeline réussi : ${env.IMAGE_NAME}:${env.SHORT_SHA}"

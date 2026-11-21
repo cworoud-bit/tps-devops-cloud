@@ -70,16 +70,16 @@ pipeline {
     }
 stage('Security') {
   parallel {
-    stage('Gitleaks') {
+        stage('Gitleaks') {
       steps {
         sh 'mkdir -p reports'
-        sh 'docker run --rm -v "$PWD:/repo" ghcr.io/gitleaks/gitleaks:v8.30.0 git /repo --report-format json --report-path /repo/reports/gitleaks.json'
+        sh 'docker run --rm -u "$(id -u):$(id -g)" -v "$PWD:/repo" ghcr.io/gitleaks/gitleaks:v8.30.0 git /repo --report-format json --report-path /repo/reports/gitleaks.json'
       }
     }
-    stage('Semgrep') {
+        stage('Semgrep') {
       steps {
         sh 'mkdir -p reports'
-        sh 'docker run --rm -v "$PWD:/src" semgrep/semgrep semgrep scan --config p/javascript --config p/owasp-top-ten --error --json --output /src/reports/semgrep.json /src'
+        sh 'docker run --rm -u "$(id -u):$(id -g)" -v "$PWD:/src" semgrep/semgrep semgrep scan --config p/javascript --config p/owasp-top-ten --error --json --output /src/reports/semgrep.json /src'
       }
     }
     stage('npm audit') {

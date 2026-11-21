@@ -1,0 +1,4 @@
+# Risque accepté le 2026-11-18, réévaluation le 2026-12-18
+# picomatch : ReDoS (CVE-2026-112366), aucun correctif publié.
+# Dépendance transitive de build (node-gyp via sqlite3), non exposée par l'API.
+CVE-2026-112366 exp:2026-12-18

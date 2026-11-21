@@ -101,7 +101,7 @@ stage('Image scan') {
   steps {
     sh '''docker run --rm -v "$PWD:/src" -v /var/run/docker.sock:/var/run/docker.sock \
       aquasec/trivy:latest image --ignorefile /src/.trivyignore \
-      --severity CRITICAL --exit-code 1 vuln-app:ci'''
+      --severity CRITICAL --exit-code 1 "$IMAGE_NAME:$SHORT_SHA"'''
   }
 }
     stage('Push') {
